@@ -1,1 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Your Name</title>
+  <!--
+    Minimal base HTML for a dark, minimal portfolio.
+    - Replace values in the <script id="portfolio-data"> JSON with your content.
+    - Add CSS and JS files later to style & render the data.
+    - Sections provided: About Me, Skills, Achievements, Activities, Projects
+  -->
+  <!-- Link to your CSS here later:
+  <link rel="stylesheet" href="styles.css">
+  -->
+</head>
+<body class="theme-dark">
+  <div id="app" class="layout">
+    <!-- Sidebar / header area -->
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <h1 class="name" aria-label="Name">Your Name</h1>
+        <p class="role" aria-label="Role">Product Designer / Front-end Developer</p>
+      </div>
 
+      <nav class="site-nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="content" role="main">
+      <!-- About Me -->
+      <section id="about" class="panel about" aria-labelledby="about-title">
+        <h2 id="about-title">About Me</h2>
+        <!-- Fallback/placeholder content; replace the JSON below to change variables -->
+        <p class="about-intro">[Short intro will be injected here from variables]</p>
+        <div class="about-details" aria-hidden="false">
+          <!-- Example placeholders for structured fields -->
+          <p class="location"><strong>Location:</strong> <span>[Your location]</span></p>
+          <p class="email"><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="panel skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <!-- Use CSS later to make this a neat matrix or tag cloud -->
+        <div class="skills-list">
+          <!-- Example structured categories; to be populated from the variables -->
+          <div class="skill-category" data-category="Primary">
+            <h3>Primary</h3>
+            <ul class="skill-items">
+              <li>[Skill A]</li>
+              <li>[Skill B]</li>
+              <li>[Skill C]</li>
+            </ul>
+          </div>
+          <div class="skill-category" data-category="Tools">
+            <h3>Tools</h3>
+            <ul class="skill-items">
+              <li>[Tool 1]</li>
+              <li>[Tool 2]</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements -->
+      <section id="achievements" class="panel achievements" aria-labelledby="achievements-title">
+        <h2 id="achievements-title">Achievements</h2>
+        <ul class="achievements-list">
+          <!-- List of achievements; each item could include year / description -->
+          <li class="achievement-item">
+            <time datetime="2026">2026</time> — <span class="achievement-desc">[Achievement description]</span>
+          </li>
+          <li class="achievement-item">
+            <time datetime="2025">2025</time> — <span class="achievement-desc">[Achievement description]</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Activities -->
+      <section id="activities" class="panel activities" aria-labelledby="activities-title">
+        <h2 id="activities-title">Activities</h2>
+        <div class="activities-timeline">
+          <!-- Timeline entries or bullets -->
+          <article class="activity">
+            <time datetime="2026-06">Jun 2026</time>
+            <p class="activity-summary">[Activity summary or event]</p>
+          </article>
+          <article class="activity">
+            <time datetime="2025-11">Nov 2025</time>
+            <p class="activity-summary">[Activity summary or event]</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="panel projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div class="projects-grid" role="list">
+          <!-- Each project card: replace entries with your projects -->
+          <article class="project-card" role="listitem" aria-labelledby="project-1-title">
+            <h3 id="project-1-title">Project Title 1</h3>
+            <p class="project-desc">Short description of the project—goal, your role, outcome.</p>
+            <p class="project-meta"><a href="#" class="project-link">View</a></p>
+          </article>
+
+          <article class="project-card" role="listitem" aria-labelledby="project-2-title">
+            <h3 id="project-2-title">Project Title 2</h3>
+            <p class="project-desc">Short description of the project—goal, your role, outcome.</p>
+            <p class="project-meta"><a href="#" class="project-link">View</a></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer or optional right column -->
+    <footer class="site-footer" role="contentinfo">
+      <p>© <span id="year"></span> Your Name — Minimal portfolio template</p>
+    </footer>
+  </div>
+
+  <!--
+    Data block: Edit this JSON to change the variables used across the page.
+    Later you can add a small JS renderer that reads this JSON and injects content into the sections.
+  -->
+  <script id="portfolio-data" type="application/json">
+  {
+    "about": {
+      "name": "Your Name",
+      "role": "Product Designer / Front-end Developer",
+      "intro": "A concise intro about you — who you are, what you design/build, and what you love to solve.",
+      "location": "City, Country",
+      "email": "you@example.com",
+      "more": "Optional extended bio: background, approach, passions."
+    },
+    "skills": [
+      {
+        "category": "Design",
+        "items": ["UX Design", "Interaction Design", "Prototyping"]
+      },
+      {
+        "category": "Front-end",
+        "items": ["HTML", "CSS", "JavaScript", "React"]
+      },
+      {
+        "category": "Tools",
+        "items": ["Figma", "Sketch", "VSCode"]
+      }
+    ],
+    "achievements": [
+      {"year": 2026, "text": "Award or recognition received"},
+      {"year": 2025, "text": "Major milestone or publication"}
+    ],
+    "activities": [
+      {"date":"2026-06", "text":"Talked at Conference X about Y"},
+      {"date":"2025-11", "text":"Led a workshop on design systems"}
+    ],
+    "projects": [
+      {
+        "title": "Project One",
+        "description": "One-line description of the project, your role, and outcome.",
+        "link": "#"
+      },
+      {
+        "title": "Project Two",
+        "description": "One-line description of the project, your role, and outcome.",
+        "link": "#"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Small convenience script: set current year in footer. (No rendering of data so you can add your own JS later) -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Note: I intentionally didn't auto-render the JSON into DOM so you can style and
+    // choose your preferred rendering method later. If you want, I can add a small
+    // renderer now that reads the #portfolio-data JSON and injects content into the sections.
+  </script>
+
+  <!-- Add your JS file later:
+  <script src="app.js"></script>
+  -->
+</body>
+</html> 
