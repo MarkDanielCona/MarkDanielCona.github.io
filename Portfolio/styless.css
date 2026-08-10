@@ -1,1 +1,234 @@
+:root{
+  --bg: #000; /* pure black canvas like concept art */
+  --panel: #0f1113;
+  --muted: #94a3b8;
+  --text: #0b0c0d; /* text inside white cards */
+  --white-card: #ffffff;
+  --accent: #072bb8; /* deep blue for pills */
+  --accent-2: #0a33c6;
+  --gap: 28px;
+  --radius: 12px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  box-sizing: border-box;
+}
 
+/* reset */
+*, *::before, *::after { box-sizing: inherit; }
+html,body { height:100%; margin:0; }
+
+/* page background like the concept art */
+body {
+  background: var(--bg);
+  color: var(--white-card);
+  padding: 14px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* TOPBAR (header-style) */
+.topbar {
+  width: calc(100% - 28px);
+  max-width: 1200px;
+  margin: 0 auto 18px;
+  padding: 6px 12px;
+}
+.topbar-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.topbar-left{
+  /* intentionally empty to match minimal concept; you can add branding here */
+}
+.topbar-controls {
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+/* pill styling (reused for header controls) */
+.pill {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #fff;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight:700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  cursor: pointer;
+}
+.pill:focus, .pill:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+
+/* dot next to pills (for visual balance) */
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  display:inline-block;
+}
+
+/* HERO: large black canvas with white cards and controls */
+.hero {
+  padding: 18px;
+  margin-bottom: 36px;
+  display: block;
+  width: calc(100% - 36px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+}
+
+/* inner constrained area */
+.hero-inner {
+  position: relative;
+  min-height: 360px; /* adjust height to match the visual weight */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px;
+}
+
+/* Hero grid: left column stacked cards, right column large photo card */
+.hero-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* left column contains two stacked cards */
+.left-col {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+/* generic white card style */
+.card {
+  background: var(--white-card);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* large name card look */
+.card--large {
+  min-height: 180px;
+}
+.big-name {
+  margin: 0;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.subtitle {
+  margin: 8px 0 0 0;
+  color: #6b7280;
+  font-size: 0.98rem;
+}
+
+/* small paragraph card */
+.card--small { min-height: 120px; padding: 22px; }
+.lead { margin:0; color:#374151; font-size:1rem; }
+
+/* right column photo card */
+.right-col { display:flex; align-items:center; justify-content:center; }
+.card--photo {
+  height: 100%;
+  min-height: 320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:0;
+  overflow:hidden;
+  border-radius: 12px;
+}
+
+/* MAIN content (scroll down) - panels */
+.content {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding-left: 18px;
+  padding-right: 18px;
+  display: grid;
+  gap: 26px;
+  grid-template-columns: 1fr;
+}
+
+/* panel look to match subdued cards on black canvas */
+.panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 24px;
+  color: #e6eef8;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* section headings */
+.panel h2 {
+  margin: 0 0 12px 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Skills grid */
+.skills-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.skill {
+  background: rgba(255,255,255,0.04);
+  color: #dbeafe;
+  padding:8px 12px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+/* Achievements list */
+.achievements-list { margin:0; padding:0 0 0 0; list-style:none; color: #cbd5e1; }
+.achievements-list li { padding:8px 0; border-bottom: 1px dashed rgba(255,255,255,0.02); }
+.achievements-list time { color: var(--accent); font-weight:700; margin-right:10px; }
+
+/* Activities */
+.activity { color:#cbd5e1; padding:8px 0; }
+
+/* Projects grid */
+.projects-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:14px;
+}
+.project-card {
+  background: rgba(255,255,255,0.02);
+  padding: 16px;
+  border-radius: 10px;
+  color: #dbeafe;
+}
+
+/* responsive behaviour */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .left-col { order: 2; }
+  .right-col { order: 1; }
+  .hero-inner { min-height: auto; padding-bottom: 10px; }
+  .hero { padding: 12px; }
+  .pill { padding: 8px 14px; font-size: 0.9rem; }
+}
