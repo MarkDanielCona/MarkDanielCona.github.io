@@ -123,6 +123,25 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+/* photo should fill the card and crop without distortion */
+.card--photo {
+  padding: 0;               /* remove inner padding so image fills card */
+  overflow: hidden;        /* hide cropped parts */
+  border-radius: 12px;
+  display: block;
+  min-height: 320px;       /* keeps the visual height of the photo card */
+}
+
+/* image inside the photo card */
+.photo {
+  display: block;          /* removes inline-gap and allows sizing */
+  width: 100%;             /* fill card width */
+  height: 100%;            /* fill card height */
+  min-height: 320px;       /* match card minimum so it won't collapse */
+  object-fit: cover;       /* crop to fill while preserving aspect ratio */
+  object-position: center 30%; /* tune focal point (move up: 30% shows upper face/helmet) */
+  border-radius: inherit;  /* match rounded corners from the card */
+}
 
 /* large name card look */
 .card--large {
