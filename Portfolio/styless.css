@@ -21,6 +21,7 @@ body {
   padding: 14px;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  overflow-x: hidden;
 }
 
 .topbar {
@@ -33,12 +34,17 @@ body {
   display:flex;
   align-items:center;
   justify-content:space-between;
+  flex-wrap: wrap;
 }
 
 .topbar-controls {
   display:flex;
   gap:12px;
   align-items:center;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100%;
 }
 
 .pill {
@@ -53,6 +59,7 @@ body {
   font-weight:700;
   box-shadow: 0 4px 12px rgba(0,0,0,0.45);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .pill:focus, .pill:hover {
@@ -67,6 +74,7 @@ body {
   background: linear-gradient(180deg, var(--accent-2), var(--accent));
   box-shadow: 0 4px 12px rgba(0,0,0,0.45);
   display:inline-block;
+  flex-shrink: 0;
 }
 
 .hero {
@@ -272,15 +280,6 @@ body {
   font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .left-col { order: 2; }
-  .right-col { order: 1; }
-  .hero-inner { min-height: auto; padding-bottom: 10px; }
-  .hero { padding: 12px; }
-  .pill { padding: 8px 14px; font-size: 0.9rem; }
-}
-
 .footer {
   background: var(--panel);
   color: var(--muted);
@@ -288,4 +287,52 @@ body {
   text-align: center;
   font-size: 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .left-col { order: 2; }
+  .right-col { order: 1; }
+  .hero-inner { min-height: auto; padding-bottom: 10px; }
+  .hero { padding: 12px; }
+  .pill { padding: 8px 14px; font-size: 0.9rem; }
+
+  .card--small { height: auto; min-height: 120px; }
+
+  .card--photo,
+  .photo { min-height: 260px; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 10px; }
+
+  .topbar { width: 100%; padding: 6px 4px; }
+  .topbar-controls { gap: 8px; }
+  .pill { padding: 7px 12px; font-size: 0.82rem; }
+  .dot { width: 16px; height: 16px; }
+
+  .hero { width: 100%; padding: 8px; margin-bottom: 24px; }
+  .hero-inner { padding: 8px; }
+  .hero-grid { gap: 14px; }
+  .left-col { gap: 14px; }
+
+  .card { padding: 20px; }
+  .big-name { font-size: 1.6rem; }
+  .subtitle { font-size: 0.9rem; }
+  .lead { font-size: 0.95rem; }
+
+  .card--photo,
+  .photo { min-height: 220px; }
+
+  .content { padding-left: 10px; padding-right: 10px; gap: 18px; }
+  .panel { padding: 16px; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 380px) {
+  .pill { padding: 6px 10px; font-size: 0.75rem; }
+  .big-name { font-size: 1.4rem; }
+  .card { padding: 16px; }
+  .card--photo, .photo { min-height: 180px; }
 }
