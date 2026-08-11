@@ -2,10 +2,10 @@
   --bg: #000; /* pure black canvas like concept art */
   --panel: #0f1113;
   --muted: #94a3b8;
-  --text: #0b0c0d; /* text inside white cards */
+  --text: #000000; /* text inside white cards */
   --white-card: #ffffff;
-  --accent: #072bb8; /* deep blue for pills */
-  --accent-2: #0a33c6;
+  --accent: #ffffff; /* deep blue for pills */
+  --accent-2: #ffffff;
   --gap: 28px;
   --radius: 12px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -47,7 +47,7 @@ body {
 /* pill styling (reused for header controls) */
 .pill {
   background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: #000000;
   text-decoration:none;
   display:inline-flex;
   align-items:center;
@@ -123,24 +123,25 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
 /* photo should fill the card and crop without distortion */
 .card--photo {
-  padding: 0;               /* remove inner padding so image fills card */
-  overflow: hidden;        /* hide cropped parts */
+  padding: 0;
+  overflow: hidden;
   border-radius: 12px;
   display: block;
-  min-height: 320px;       /* keeps the visual height of the photo card */
+  min-height: 320px;
 }
 
 /* image inside the photo card */
 .photo {
-  display: block;          /* removes inline-gap and allows sizing */
-  width: 100%;             /* fill card width */
-  height: 100%;            /* fill card height */
-  min-height: 320px;       /* match card minimum so it won't collapse */
-  object-fit: cover;       /* crop to fill while preserving aspect ratio */
-  object-position: center 30%; /* tune focal point (move up: 30% shows upper face/helmet) */
-  border-radius: inherit;  /* match rounded corners from the card */
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: inherit;
 }
 
 /* large name card look */
@@ -160,7 +161,7 @@ body {
 }
 
 /* small paragraph card */
-.card--small { min-height: 120px; padding: 22px; }
+.card--small { min-height: 360px; padding: 22px; }
 .lead { margin:0; color:#374151; font-size:1rem; }
 
 /* right column photo card */
@@ -191,7 +192,8 @@ body {
 /* panel look to match subdued cards on black canvas */
 .panel {
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius: 12px;
+  border-radius: 999px;
+  overflow: hidden;
   padding: 24px;
   color: #e6eef8;
   border: 1px solid rgba(255,255,255,0.03);
