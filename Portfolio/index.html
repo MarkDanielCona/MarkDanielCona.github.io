@@ -11,8 +11,14 @@
     <div class="topbar-inner">
       <div class="topbar-left" aria-hidden="true"></div>
 
-      <nav class="topbar-controls" aria-label="Header controls">  
-        <a class="pill" href="#about">About</a> 
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="topbarControls">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="topbar-controls" id="topbarControls" aria-label="Header controls">
+        <a class="pill" href="#about">About</a>
         <a class="pill" href="#skills">Skills</a>
         <a class="pill" href="#achievements">Achievements</a>
         <a class="pill" href="#activities">Activities</a>
@@ -168,5 +174,32 @@
       <p>© 2026 Mark Daniel P. Cona</p>
     </div>
 </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const topbarControls = document.getElementById('topbarControls');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = topbarControls.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    topbarControls.querySelectorAll('a.pill').forEach(link => {
+      link.addEventListener('click', () => {
+        topbarControls.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.topbar') && topbarControls.classList.contains('open')) {
+        topbarControls.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
